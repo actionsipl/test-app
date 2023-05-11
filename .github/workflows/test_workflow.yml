@@ -5,7 +5,7 @@ on:
       - master
 
 jobs:
-  first-job:
+  build-java-app:
     runs-on: ubuntu-latest
     
     steps:
