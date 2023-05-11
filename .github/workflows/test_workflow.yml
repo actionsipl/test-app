@@ -24,4 +24,29 @@ jobs:
       - name: Build Action
         run: ./gradlew build
 
+  deploy-app:
+    needs: build-java-app
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'oracle'
+          java-version: 17
+      
+      - name: Grant Permissoins
+        run: chmod +x gradlew
+
+      - name: Build Action
+        run: ./gradlew build
+
+      - name: Deploying
+        run: echo "Deploying......"
+  
+
+
 
