@@ -1,0 +1,26 @@
+name: Test Workflow
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+
+      - name: Grant Permissoins
+        run: chmod +x gradlew
+
+      - name: Build Action
+        run: ./gradlew build
+
+
